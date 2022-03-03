@@ -1,0 +1,280 @@
+
+/* || General style rules */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+  
+/* This as the class implies hide the lement visually */
+.hide-visually {
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute!important;
+    border: 0!important;
+    padding: 0!important;
+    margin: 0!important;
+    clip: rect(1px,1px,1px,1px);
+}
+
+/* || Typography */
+
+body {
+    letter-spacing: 0.2px;
+    font-size: 10px;
+    line-height: 1.5;
+    word-spacing: 0.8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+}
+
+.section-cs .wrapper-desc h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.section-cs .wrapper-desc h2 span:first-child {
+    font-weight: 300;
+    color: hsl(0, 36%, 70%);
+}
+
+.section-cs .wrapper-desc h2 span:last-child {
+    font-weight: 600;
+    color: hsl(0, 6%, 24%);
+}
+
+.section-cs .wrapper-desc > p {
+    font-size: 1rem;
+    color: hsl(0, 36%, 70%);
+    text-align: center;
+    font-weight: 400;
+}
+
+.section-cs form input {
+    font-size: 1rem;
+}
+
+/* || Layout */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    flex: 0;
+}
+
+/* || Section feature */
+
+.section-cs {
+    margin: 0 auto;
+    max-width: 42.5em;
+}
+
+.section-cs .wrapper-logo {
+    margin: 3.2em 0;
+    padding: 0 3em;
+}
+
+.section-cs .wrapper-logo img {
+    width: 10em;
+    display: block;
+}
+
+.section-cs .wrapper-hero img {
+    width: 100%;
+}
+
+.section-cs .wrapper-desc {
+    background: border-box hsl(0, 100%, 98%);
+    padding: 6.5em 3em 9em;
+}
+
+.section-cs .wrapper-desc h2 {
+    margin-top: 0;
+}
+
+.section-cs .wrapper-desc form {
+    margin-top: 4em;
+}
+
+.section-cs .wrapper-desc form p {
+    flex: 1;
+    margin: 0;
+    position: relative;
+}
+
+.section-cs form input {
+    border: 1px solid hsl(0, 36%, 70%);
+    padding: 0.925em 1.5em;
+    border-radius: 50px;
+    background-color: transparent;
+    outline: none;
+    color: hsl(0, 6%, 24%);
+    font-weight: 400;
+    width: 100%;
+}
+
+.section-cs form input:focus:invalid {
+    border: 2px solid hsl(0, 93%, 68%);
+}
+
+.section-cs form input::placeholder {
+    color: hsla(0, 6%, 24%, 30%);
+}
+
+.section-cs .wrapper-desc form button {
+    width: 6.5em;
+    height: 5em;
+    text-align: center;
+    border: 0;
+    padding: 0;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%) 20%);
+    border-radius: 50px;
+    box-shadow: 0 6px 13px hsl(0deg 36% 70% / 50%);
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: none;
+}
+
+.section-cs .wrapper-desc .error {
+    display: none;
+}
+
+.section-cs .wrapper-desc .error.active {
+    display: block;
+    width: 100%;
+    color: hsl(0, 93%, 68%);
+    font-size: 0.875rem;
+    padding: 0.8em 1.786em;
+    font-weight: 400;
+}
+
+.section-cs .wrapper-desc .error-img {
+    display: none;
+}
+
+.section-cs .wrapper-desc .error-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.section-cs .wrapper-desc .error-img.active {
+    display: block;
+    position: absolute;
+    top: 1.25em;
+    right: 7em;
+}
+
+/* || Footer */
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 26.56em) {
+    
+    /* || Layout */
+
+    body {
+        background: border-box hsl(0, 100%, 98%);
+    }
+}
+
+@media screen and (min-width: 64.0625em) {
+    
+    /* Section feature */
+
+    .section-cs {
+        max-width: initial;
+        display: grid;
+        grid-template-areas: 
+        "empty logo padding hero"
+        "empty desc padding hero";
+        grid-template-columns: auto 33% 15% 42%;
+        grid-template-rows: min-content 1fr;
+    }
+
+    .section-cs .wrapper-logo {
+        grid-area: logo;
+        margin: 6.5em 0;
+        padding: 0;
+    }
+
+    .section-cs .wrapper-logo img {
+        width: initial;
+    }
+
+    .section-cs .wrapper-desc {
+        grid-area: desc;
+        padding: 0;
+    }
+
+    .section-cs .wrapper-desc h2 {
+        font-size: 3.125rem;
+    }
+
+    .section-cs .wrapper-hero {
+        grid-area: hero;
+    }
+
+    .section-cs .wrapper-desc h2 {
+        text-align: initial;
+    }
+
+    .section-cs .wrapper-desc > p {
+        text-align: initial;
+    }
+
+    .section-cs form input {
+        padding: 1.1em 1.5em;
+    }
+
+    .section-cs .wrapper-desc form button {
+        width: 10em;
+        height: 5.5em;
+    }
+
+    .section-cs .wrapper-desc form button:hover {
+        cursor: pointer;
+        opacity: 70%;
+    }
+
+    .section-cs .wrapper-desc .error-img.active {
+        right: 11em;
+        top: 1.5em;
+    }
+
+}
+
+@media screen and (min-width: 75.0625em) {
+
+    .section-cs .wrapper-desc {
+        margin-top: 7em;
+    }
+    
+}
