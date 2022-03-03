@@ -207,6 +207,13 @@ footer {
 
 @media screen and (min-width: 64.0625em) {
     
+    /* || Layout */
+
+    body {
+        background: url(../images/bg-pattern-desktop.svg) left top / auto 100% no-repeat,  
+        border-box hsl(0, 100%, 98%);
+    }
+    
     /* Section feature */
 
     .section-cs {
@@ -232,6 +239,7 @@ footer {
     .section-cs .wrapper-desc {
         grid-area: desc;
         padding: 0;
+        background-color: initial;
     }
 
     .section-cs .wrapper-desc h2 {
