@@ -1,4 +1,5 @@
 const form = document.getElementsByTagName('form')[0];
+form.setAttribute('novalidate', '');
 
 const email = document.getElementById('email');
 
@@ -9,10 +10,8 @@ const emailErrorImg = document.querySelector('.error-img');
 email.addEventListener('input', event => {
     if (email.validity.valid) {
         emailError.textContent = '';
-        removeClass(emailError, 'active');
-        removeClass(emailErrorImg, 'active');
-    } else {
-        showError();
+        emailError.classList.toggle('active', false);
+        emailErrorImg.classList.toggle('active', false);
     }
 });
 
@@ -29,24 +28,9 @@ function showError() {
     } else if (email.validity.typeMismatch) {
         emailError.textContent = 'Please provide a valid email';
     } else if (email.validity.tooShort) {
-        emailError.textContent = 'Email should be at least ${email.minLength} characters';
+        emailError.textContent = `Email should be at least ${email.minLength} characters`;
     }
 
-    addClass(emailError, 'active');
-    addClass(emailErrorImg, 'active');
+    emailError.classList.toggle('active', true);
+    emailErrorImg.classList.toggle('active', true);
 }
-
-function addClass(nodeElement, className) {
-    if (!nodeElement.classList.contains(className)) {
-        nodeElement.classList.add(className);
-    }
-}
-
-function removeClass(nodeElement, className) {
-    if (nodeElement.classList.contains(className)) {
-        nodeElement.classList.remove(className);
-    }
-}
-
-
-
